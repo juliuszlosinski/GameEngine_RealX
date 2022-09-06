@@ -1,0 +1,9 @@
+﻿  FileHandler.cpp
+  main.cpp
+  Shader.cpp
+  Window.cpp
+  Generating Code...
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'D:\GameEngine_RealX\GameEngine_RealX\x64\Debug\vc120.pdb'; linking object as if no debug info
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  GameEngine_RealX.vcxproj -> D:\GameEngine_RealX\GameEngine_RealX\x64\Debug\GameEngine_RealX.exe
