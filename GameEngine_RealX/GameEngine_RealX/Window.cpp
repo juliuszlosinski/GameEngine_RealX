@@ -1,4 +1,7 @@
+#ifndef WINDOW_H
+#define WINDOW_H
 #include "Window.h"
+#endif 
 
 // Create window with specified params.
 Window::Window(int width, int height, const std::string& title, float redColorFactor, float greenColorFactor, float blueColorFactor)

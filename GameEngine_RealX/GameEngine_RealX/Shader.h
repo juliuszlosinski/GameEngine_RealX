@@ -1,10 +1,15 @@
-#define GLEW_STATIC
-
+#ifndef WINDOW_H
+#define WINDOW_H
 #include "Window.h"
+#endif 
+
+#ifndef FILE_HANDLER_H
+#define FILE_HANDLER_H
 #include "FileHandler.h"
+#endif
 
 #ifndef GLEW_H
-#define GLEW_H
+#define GLEW_STATIC
 #include "glew.h"
 #endif 
 
@@ -13,9 +18,20 @@
 #include "glfw3.h"
 #endif
 
-#include <iostream>
+#ifndef STRING_H
+#define STRING_H
 #include <string>
+#endif
+
+#ifndef FSTREAM_H
+#define FSTREAM_H
 #include <fstream>
+#endif
+
+#ifndef IOSTREAM_H
+#define IOSTREAM_H
+#include <iostream>
+#endif
 
 class Shader
 {
@@ -43,6 +59,18 @@ public:
 
 	// Create shader program from strings.
 	void CreateFromStrings(std::string const& vertexShaderCode, std::string const& fragmentShaderCode);
+
+	// Get uniform location.
+	int getUniformLocation(std::string const& nameOfUniform);
+
+	// Set float uniform.
+	void setFloat(std::string const& uniformName, float value);
+
+	// Set int uniform.
+	void setInt(std::string const& uniformName, int value);
+
+	// Set bool uniform.
+	void setBool(std::string const& uniformName, bool value);
 
 	// Creating vertex shader object based on file.
 	static int CreateVertexShaderObjectFromFile(std::string const& pathToFile);

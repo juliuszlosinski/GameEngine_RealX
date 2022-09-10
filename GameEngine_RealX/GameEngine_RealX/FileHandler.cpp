@@ -1,4 +1,7 @@
+#ifndef FILE_HANDLER_H
+#define FILE_HANDLER_H
 #include "FileHandler.h"
+#endif
 
 // Read text from file to string format.
 std::string ReadTextFromFile(const std::string& pathToFile) {

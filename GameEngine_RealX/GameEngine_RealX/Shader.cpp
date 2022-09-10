@@ -1,4 +1,7 @@
+#ifndef SHADER_H
+#define SHADER_H
 #include "Shader.h"
+#endif
 
 // Default constructor.
 Shader::Shader()
@@ -106,6 +109,26 @@ int Shader::CreateShaderObjectFromString(std::string const& data, GLenum typeOfS
 		std::cout << "SUCCESS::SHADER::" << typeOfShader << "::COMPILATION_SUCCESS\n" << std::endl;
 		return shaderObject;
 	}
+}
+
+
+// Set float uniform.
+void Shader::setFloat(std::string const& uniformName, float value) {
+	glUniform1f(getUniformLocation(uniformName), value);
+}
+// Set int uniform.
+void Shader::setInt(std::string const& uniformName, int value) {
+	glUniform1i(getUniformLocation(uniformName), value);
+}
+
+// Set bool uniform.
+void Shader::setBool(std::string const& uniformName, bool value) {
+	glUniform1i(getUniformLocation(uniformName), static_cast<int>(value));
+}
+
+// Get uniform location.
+int Shader::getUniformLocation(std::string const& nameOfUniform) {
+	return glGetUniformLocation(this->shaderProgram, nameOfUniform.c_str());
 }
 
 // Start using program.
