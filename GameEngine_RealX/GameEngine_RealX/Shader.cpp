@@ -141,6 +141,17 @@ void Shader::StopUsingProgram() {
 	glUseProgram(0);
 }
 
+// Set mat4 uniform value.
+void Shader::setMat4(std::string const& uniformName, glm::mat4 const& value) {
+	glUniformMatrix4fv(getUniformLocation(uniformName), 1, GL_FALSE, glm::value_ptr(value));
+
+}
+
+// Set vector 3 uniform value.
+void Shader::setVec3(std::string const& uniformName, glm::vec3 const& value) {
+	glUniform3fv(getUniformLocation(uniformName), 1, glm::value_ptr(value));
+}
+
 // Creating shader program based on files.
 void Shader::CreateFromFiles(std::string const& pathToVertexShader, std::string const& pathToFragmentShader)
 {

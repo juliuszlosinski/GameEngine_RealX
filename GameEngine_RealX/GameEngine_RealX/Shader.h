@@ -33,6 +33,13 @@
 #include <iostream>
 #endif
 
+#ifndef GLM_H
+#define GLM_H
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#endif
+
 class Shader
 {
 private:
@@ -71,6 +78,12 @@ public:
 
 	// Set bool uniform.
 	void setBool(std::string const& uniformName, bool value);
+
+	// Set mat4 uniform value.
+	void setMat4(std::string const& uniformName, glm::mat4 const& value);
+
+	// Set vector 3 uniform value.
+	void setVec3(std::string const& uniformName, glm::vec3 const& value);
 
 	// Creating vertex shader object based on file.
 	static int CreateVertexShaderObjectFromFile(std::string const& pathToFile);

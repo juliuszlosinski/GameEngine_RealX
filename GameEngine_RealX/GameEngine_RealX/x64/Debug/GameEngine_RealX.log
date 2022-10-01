@@ -1,2 +1,7 @@
-﻿  main.cpp
+﻿  Camera.cpp
+  Shader.cpp
+  Window.cpp
+  main.cpp
+D:\GameEngine_RealX\GameEngine_RealX\GameEngine_RealX\main.cpp(148,6): warning C4101: 'a': unreferenced local variable
+  Generating Code...
   GameEngine_RealX.vcxproj -> D:\GameEngine_RealX\GameEngine_RealX\x64\Debug\GameEngine_RealX.exe

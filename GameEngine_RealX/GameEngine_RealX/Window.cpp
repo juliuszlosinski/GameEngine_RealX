@@ -16,7 +16,11 @@ Window::Window(int width, int height, const std::string& title, float redColorFa
 	for (size_t i = 0; i < 1024; i++) {
 		keys[i] = 0;
 	}
-
+	this->deltaX = 0;
+	this->deltaY = 0;
+	lastX = width / 2.0f;
+	lastY = height / 2.0f;
+	firstMouseMoved = true;
 }
 
 // Default constructor.
@@ -28,6 +32,12 @@ Window::Window()
 	this->redColorFactor = .2f;
 	this->greenColorFactor = .3f;
 	this->blueColorFactor = .3f;
+	this->deltaX = 0;
+	this->deltaY = 0;
+	this->deltaScroll = 0;
+	lastX = width / 2.0f;
+	lastY = height / 2.0f;
+	firstMouseMoved = true;
 }
 
 // Destructor.
@@ -35,6 +45,21 @@ Window::~Window()
 {
 	// Free all resources.
 	this->Deinitialize();
+}
+
+void Window::setDeltaX(float deltaX)
+{
+	this->deltaX = deltaX;
+}
+
+void Window::setDeltaY(float deltaY)
+{
+	this->deltaY = deltaY;
+}
+
+void Window::setDeltaScroll(float deltaScroll)
+{
+	this->deltaScroll = deltaScroll;
 }
 
 // Check if window is initialized.
@@ -117,6 +142,57 @@ int Window::isKeyPressed(int keyCode) {
 }
 
 // Clear color from previous scene.
+void Window::ClearDepthBuffer() {
+	glClear(GL_DEPTH_BUFFER_BIT);
+}
+
+// Enable Depth test.
+void Window::EnableDepthTest()
+{
+	glEnable(GL_DEPTH_TEST);
+}
+
+// Get last position of mouse on x axis.
+float Window::getLastX() {
+	return lastX;
+}
+
+// Get last position of mouse on y axis.
+float Window::getLastY() {
+	return lastY;
+}
+
+// Get last position - current position on x axis ~ delta.
+float Window::getDeltaX()
+{
+	return deltaX;
+}
+float Window::getDeltaY()
+{
+	return deltaY;
+}
+float Window::getDeltaScroll()
+{
+	return deltaScroll;
+}
+bool Window::isFirstMouseMoved() {
+	return firstMouseMoved;
+}
+
+void Window::setLastX(float lastX) {
+	this->lastX = lastX;
+}
+
+void Window::setLastY(float lastY) {
+	this->lastY = lastY;
+}
+
+void Window::setFirstMouseMoved(bool firstMouseMoved) {
+	this->firstMouseMoved = firstMouseMoved;
+}
+
+
+// Clear color from previous scene.
 void Window::ClearColorBuffer() {
 	glClearColor(this->redColorFactor, this->greenColorFactor, this->blueColorFactor, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -136,6 +212,40 @@ void Window::HandleKeys(GLFWwindow* window, int key, int code, int action, int m
 			theWindow->keys[key] = false;
 		}
 	}
+}
+
+// Callback for mouse movent handling.
+void Window::HandleMouseMovement(GLFWwindow* window, double xposIn, double yposIn)
+{
+	// Casting the window.
+	Window* theWindow = static_cast<Window*>(glfwGetWindowUserPointer(window));
+
+	float xpos = static_cast<float>(xposIn);
+	float ypos = static_cast<float>(yposIn);
+
+	if (theWindow->isFirstMouseMoved())
+	{
+		theWindow->setLastX(xpos);
+		theWindow->setLastY(ypos);
+		theWindow->setFirstMouseMoved(false);
+	}
+
+	float deltaX = xpos - theWindow->getLastX();
+	float deltaY = theWindow->getLastY() - ypos;
+
+	theWindow->setLastX(xpos);
+	theWindow->setLastY(ypos);
+	theWindow->setDeltaX(deltaX);
+	theWindow->setDeltaY(deltaY);
+}
+
+void Window::HandleScroll(GLFWwindow* window, double xoffset, double yoffset)
+{
+	// Casting the window.
+	Window* theWindow = static_cast<Window*>(glfwGetWindowUserPointer(window));
+
+	// Seting delta scroll.
+	theWindow->setDeltaScroll(static_cast<float>(yoffset));
 }
 
 // Initialize GLFW (Window and its associated context) and GLEW.
@@ -194,6 +304,9 @@ void Window::Initialize()
 
 	// Setting up keys call back.
 	glfwSetKeyCallback(this->pWindow, Window::HandleKeys);
+
+	glfwSetCursorPosCallback(this->pWindow, Window::HandleMouseMovement);
+	glfwSetScrollCallback(this->pWindow, Window::HandleScroll);
 
 	// Setting pointer.
 	glfwSetWindowUserPointer(this->pWindow, this);
