@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{49b4d1e5-ef9f-453a-a56f-709f4a5add4e}</ProjectGuid>
+    <RootNamespace>GameEngineRealX</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Resources\PhysX\include;$(SolutionDir)External Resources\irrKlang\include;$(SolutionDir)External Resources\ASSIMP\include;$(SolutionDir)External Resources\STB\include;$(SolutionDir)External Resources\GLM\include;$(SolutionDir)External Resources\SOIL\include;$(SolutionDir)External Resources\GLEW\include;$(SolutionDir)External Resources\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)External Resources\PhysX\lib;$(SolutionDir)External Resources\ASSIMP\lib;$(SolutionDir)External Resources\SOIL\lib\Release\x64;$(SolutionDir)External Resources\irrKlang\lib;$(SolutionDir)External Resources\GLFW\lib;$(SolutionDir)External Resources\GLEW\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>PhysXCooking_64.lib;PhysXCommon_64.lib;PhysX_64.lib;PhysXFoundation_64.lib;PhysXPvdSDK_static_64.lib;PhysXExtensions_static_64.lib;irrKlang.lib;assimp.lib;soil.lib;opengl32.lib;glew32s.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Resources\PhysX\include;$(SolutionDir)External Resources\irrKlang\include;$(SolutionDir)External Resources\ASSIMP\include;$(SolutionDir)External Resources\STB\include;$(SolutionDir)External Resources\GLM\include;$(SolutionDir)External Resources\SOIL\include;$(SolutionDir)External Resources\GLEW\include;$(SolutionDir)External Resources\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)External Resources\PhysX\lib;$(SolutionDir)External Resources\ASSIMP\lib;$(SolutionDir)External Resources\SOIL\lib\Release\x64;$(SolutionDir)External Resources\irrKlang\lib;$(SolutionDir)External Resources\GLFW\lib;$(SolutionDir)External Resources\GLEW\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>PhysXCooking_64.lib;PhysXCommon_64.lib;PhysX_64.lib;PhysXFoundation_64.lib;PhysXPvdSDK_static_64.lib;PhysXExtensions_static_64.lib;irrKlang.lib;assimp.lib;soil.lib;opengl32.lib;glew32s.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Resources\PhysX\include;$(SolutionDir)External Resources\irrKlang\include;$(SolutionDir)External Resources\ASSIMP\include;$(SolutionDir)External Resources\STB\include;$(SolutionDir)External Resources\GLM\include;$(SolutionDir)External Resources\SOIL\include;$(SolutionDir)External Resources\GLEW\include;$(SolutionDir)External Resources\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)External Resources\PhysX\lib;$(SolutionDir)External Resources\ASSIMP\lib;$(SolutionDir)External Resources\SOIL\lib\Release\x64;$(SolutionDir)External Resources\irrKlang\lib;$(SolutionDir)External Resources\GLFW\lib;$(SolutionDir)External Resources\GLEW\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>PhysXCooking_64.lib;PhysXCommon_64.lib;PhysX_64.lib;PhysXFoundation_64.lib;PhysXPvdSDK_static_64.lib;PhysXExtensions_static_64.lib;irrKlang.lib;assimp.lib;soil.lib;opengl32.lib;glew32s.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Resources\PhysX\include;$(SolutionDir)External Resources\irrKlang\include;$(SolutionDir)External Resources\ASSIMP\include;$(SolutionDir)External Resources\STB\include;$(SolutionDir)External Resources\GLM\include;$(SolutionDir)External Resources\SOIL\include;$(SolutionDir)External Resources\GLEW\include;$(SolutionDir)External Resources\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)External Resources\PhysX\lib;$(SolutionDir)External Resources\ASSIMP\lib;$(SolutionDir)External Resources\SOIL\lib\Release\x64;$(SolutionDir)External Resources\irrKlang\lib;$(SolutionDir)External Resources\GLFW\lib;$(SolutionDir)External Resources\GLEW\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>PhysXCooking_64.lib;PhysXCommon_64.lib;PhysX_64.lib;PhysXFoundation_64.lib;PhysXPvdSDK_static_64.lib;PhysXExtensions_static_64.lib;irrKlang.lib;assimp.lib;soil.lib;opengl32.lib;glew32s.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Graphics\GraphicsEngine.cpp" />
+    <ClCompile Include="Graphics\Cubemap.cpp" />
+    <ClCompile Include="Graphics\Camera.cpp" />
+    <ClCompile Include="Graphics\Lights\DirectionalLight.cpp" />
+    <ClCompile Include="Graphics\MeshesResourcesLoader.cpp" />
+    <ClCompile Include="Graphics\Renderer2D.cpp" />
+    <ClCompile Include="GUI\GraphEditor.cpp" />
+    <ClCompile Include="GUI\ImCurveEdit.cpp" />
+    <ClCompile Include="GUI\ImGradient.cpp" />
+    <ClCompile Include="GUI\imgui.cpp" />
+    <ClCompile Include="GUI\ImGuizmo.cpp" />
+    <ClCompile Include="GUI\imgui_demo.cpp" />
+    <ClCompile Include="GUI\imgui_draw.cpp" />
+    <ClCompile Include="GUI\imgui_impl_glfw.cpp" />
+    <ClCompile Include="GUI\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="GUI\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="GUI\imgui_tables.cpp" />
+    <ClCompile Include="GUI\imgui_widgets.cpp" />
+    <ClCompile Include="GUI\ImSequencer.cpp" />
+    <ClCompile Include="Graphics\Material.cpp" />
+    <ClCompile Include="Graphics\Lights\PointLight.cpp" />
+    <ClCompile Include="Physics\PhysicsEngine.cpp" />
+    <ClCompile Include="RealX\RealXEngine.cpp" />
+    <ClCompile Include="Core\REntity.cpp" />
+    <ClCompile Include="Graphics\TexturesResourcesLoader.cpp" />
+    <ClCompile Include="Graphics\Lights\SpotLight.cpp" />
+    <ClCompile Include="Utils\FileHandler.cpp" />
+    <ClCompile Include="Graphics\Lights\Light.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Graphics\Mesh.cpp" />
+    <ClCompile Include="Graphics\Model.cpp" />
+    <ClCompile Include="Graphics\Renderer3D.cpp" />
+    <ClCompile Include="Graphics\Shader.cpp" />
+    <ClCompile Include="Graphics\Texture.cpp" />
+    <ClCompile Include="Utils\Utils.cpp" />
+    <ClCompile Include="Graphics\Vertex.cpp" />
+    <ClCompile Include="Window\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\Audio3DSystem.h" />
+    <ClInclude Include="Core\CameraSystem.h" />
+    <ClInclude Include="Core\DirectionalLightSystem.h" />
+    <ClInclude Include="Core\MeshRenderingSystem.h" />
+    <ClInclude Include="Core\ModelRenderingSystem.h" />
+    <ClInclude Include="Core\PhysicsDynamicBox3DSystem.h" />
+    <ClInclude Include="Core\PhysicsDynamicCapsule3DSystem.h" />
+    <ClInclude Include="Core\PhysicsDynamicMesh3DSystem.h" />
+    <ClInclude Include="Core\PhysicsDynamicSphere3DSystem.h" />
+    <ClInclude Include="Core\PhysicsStaticBox3DSystem.h" />
+    <ClInclude Include="Core\PhysicsStaticCapsule3DSystem.h" />
+    <ClInclude Include="Core\PhysicsStaticMesh3DSystem.h" />
+    <ClInclude Include="Core\PhysicsStaticSphere3DSystem.h" />
+    <ClInclude Include="Core\PointLightSystem.h" />
+    <ClInclude Include="Core\SkyboxRenderingSystem.h" />
+    <ClInclude Include="Core\SpotLightSystem.h" />
+    <ClInclude Include="Graphics\GraphicsEngine.h" />
+    <ClInclude Include="Graphics\Cubemap.h" />
+    <ClInclude Include="Graphics\Camera.h" />
+    <ClInclude Include="Core\Components.h" />
+    <ClInclude Include="Core\Coordinator.h" />
+    <ClInclude Include="Core\ComponentManager.h" />
+    <ClInclude Include="Core\ComponentArray.h" />
+    <ClInclude Include="Core\CoreDataECS.h" />
+    <ClInclude Include="Core\EntityManager.h" />
+    <ClInclude Include="Core\IComponentArray.h" />
+    <ClInclude Include="Graphics\Lights\DirectionalLight.h" />
+    <ClInclude Include="Core\System.h" />
+    <ClInclude Include="Core\SystemManager.h" />
+    <ClInclude Include="Core\PhysicsSystem.h" />
+    <ClInclude Include="Graphics\MeshesResourcesLoader.h" />
+    <ClInclude Include="Graphics\MeshTypes.h" />
+    <ClInclude Include="Graphics\Renderer2D.h" />
+    <ClInclude Include="GUI\GraphEditor.h" />
+    <ClInclude Include="GUI\imconfig.h" />
+    <ClInclude Include="GUI\ImCurveEdit.h" />
+    <ClInclude Include="GUI\ImGradient.h" />
+    <ClInclude Include="GUI\imgui.h" />
+    <ClInclude Include="GUI\ImGuizmo.h" />
+    <ClInclude Include="GUI\imgui_impl_glfw.h" />
+    <ClInclude Include="GUI\imgui_impl_opengl2.h" />
+    <ClInclude Include="GUI\imgui_impl_opengl3.h" />
+    <ClInclude Include="GUI\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="GUI\imgui_internal.h" />
+    <ClInclude Include="GUI\ImSequencer.h" />
+    <ClInclude Include="GUI\imstb_rectpack.h" />
+    <ClInclude Include="GUI\imstb_textedit.h" />
+    <ClInclude Include="GUI\imstb_truetype.h" />
+    <ClInclude Include="GUI\ImZoomSlider.h" />
+    <ClInclude Include="Graphics\Material.h" />
+    <ClInclude Include="Graphics\Lights\PointLight.h" />
+    <ClInclude Include="Physics\PhysicsEngine.h" />
+    <ClInclude Include="RealX\RealXEngine.h" />
+    <ClInclude Include="RealX\RealXEngineCoreData.h" />
+    <ClInclude Include="Core\REntity.h" />
+    <ClInclude Include="Graphics\TexturesResourcesLoader.h" />
+    <ClInclude Include="Graphics\Lights\SpotLight.h" />
+    <ClInclude Include="Audio\AudioEngine.h" />
+    <ClInclude Include="Utils\FileHandler.h" />
+    <ClInclude Include="Graphics\Lights\Light.h" />
+    <ClInclude Include="Graphics\Mesh.h" />
+    <ClInclude Include="Graphics\Model.h" />
+    <ClInclude Include="Graphics\Renderer3D.h" />
+    <ClInclude Include="Graphics\Shader.h" />
+    <ClInclude Include="Graphics\Texture.h" />
+    <ClInclude Include="Utils\Utils.h" />
+    <ClInclude Include="Graphics\Vertex.h" />
+    <ClInclude Include="Window\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assimp.dll" />
+    <None Include="Shaders\skybox.frag" />
+    <None Include="Shaders\skybox.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Logs\mesh.log" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
