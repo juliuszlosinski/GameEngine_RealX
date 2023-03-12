@@ -1,8 +1,8 @@
-# GameEngine RealX
+# RealX Engine
 
 ### Description
 
-The "RealX" game engine is 3D game engine, that contains three core modules:
+The RealX engine is 3D game engine, that contains three core modules:
 - graphics engine created by using OpenGL and ImGUI APIs.
 - physics engine created by PhysX API from NVIDIA,
 - audio engine created by irrKlang API,
@@ -20,4 +20,3 @@ RealX uses Entity-Component-System (ESC) for integrating all core modules.
 ![image](https://user-images.githubusercontent.com/72278818/224540199-5473dadb-ded2-4da0-b75c-3405f9d8dfb4.png)
 ![image](https://user-images.githubusercontent.com/72278818/224540206-3cba420e-3cf9-4f53-b87c-c0fefbb291dd.png)
 ![image](https://user-images.githubusercontent.com/72278818/224540217-354d90df-c5e6-4b1a-bbe2-1ccc151a067c.png)
-
